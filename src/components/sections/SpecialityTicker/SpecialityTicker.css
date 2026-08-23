@@ -1,0 +1,74 @@
+/*
+* Specialities marquee.
+*/
+
+/* -------------------------------------------------------- specialities */
+.ticker {
+  overflow: hidden;
+  padding: 0.95rem 0;
+  background: var(--purple-soft);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.ticker-track {
+  display: flex;
+  width: max-content;
+  animation: ticker 42s linear infinite;
+}
+
+.ticker:hover .ticker-track {
+  animation-play-state: paused;
+}
+
+.ticker-list {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ticker-list li {
+  display: flex;
+  align-items: center;
+  gap: 2.1rem;
+  padding-right: 2.1rem;
+  font-size: 0.95rem;
+  color: var(--ink);
+  white-space: nowrap;
+}
+
+/* small diamond between entries */
+.ticker-mark {
+  flex: none;
+  width: 7px;
+  height: 7px;
+  background: var(--purple);
+  opacity: 0.4;
+  transform: rotate(45deg);
+}
+
+@keyframes ticker {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 560px) {
+  .ticker-list li {
+    gap: 1.5rem;
+    padding-right: 1.5rem;
+    font-size: 0.88rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ticker-track {
+    animation: none;
+  }
+
+  .ticker {
+    overflow-x: auto;
+  }
+}

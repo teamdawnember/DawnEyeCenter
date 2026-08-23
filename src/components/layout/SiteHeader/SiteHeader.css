@@ -1,0 +1,239 @@
+/*
+* Site header: brand, desktop nav, and the mobile dropdown.
+  */
+
+  /* ---------------------------------------------------------------- header */
+  .site-header {
+  position: sticky;
+  /* anchors .mobile-nav */
+  top: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  min-height: var(--header-h);
+  padding: 0.9rem 2.5rem;
+  background: rgba(250, 247, 251, 0.82);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--line);
+}
+
+/*
+ * The lockup is a single 434x58 asset. Its wordmark cap height is 32.8% of
+ * the lockup, against Inter's 72% — so matching the nav optically needs the
+ * logo at roughly 2.4x the nav's font-size.
+ *
+ * Both are clamped against the same vw, which keeps that ratio at ~108%
+ * across the whole desktop range while letting the header breathe on
+ * narrower laptops, where the six links would otherwise crowd the buttons.
+ */
+.brand {
+  display: inline-flex;
+  align-items: center;
+  flex: none;
+}
+
+.brand-logo {
+  display: block;
+  width: auto;
+  height: clamp(28px, 2.4vw, 36px);
+}
+
+.site-nav {
+  display: flex;
+  gap: clamp(1rem, 1.9vw, 2rem);
+}
+
+.site-nav a {
+  color: var(--ink);
+  text-decoration: none;
+  font-size: clamp(0.86rem, 1vw, 0.95rem);
+  white-space: nowrap;
+}
+
+.site-nav a:hover {
+  color: var(--purple);
+}
+
+.header-actions {
+  display: flex;
+  gap: 0.9rem;
+  align-items: center;
+}
+
+/* scroll progress, on the header's bottom border */
+
+.scroll-progress {
+  position: absolute;
+  right: 0;
+  bottom: -1px;
+  left: 0;
+  height: 2px;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.scroll-progress span {
+  display: block;
+  height: 100%;
+  background: var(--purple);
+  transform: scaleX(0);
+  transform-origin: left center;
+}
+
+/* hamburger + dropdown (mobile only) */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
+  width: 40px;
+  height: 40px;
+  padding: 0 8px;
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+
+.menu-toggle span {
+  display: block;
+  height: 2px;
+  width: 100%;
+  background: var(--ink);
+  transition: transform 0.22s ease, opacity 0.22s ease;
+}
+
+.menu-toggle.is-open span:first-child {
+  transform: translateY(4px) rotate(45deg);
+}
+
+.menu-toggle.is-open span:last-child {
+  transform: translateY(-4px) rotate(-45deg);
+}
+
+.mobile-nav {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 30;
+  display: grid;
+  padding: 0.5rem 1.25rem 1.25rem;
+  background: rgba(250, 247, 251, 0.97);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--line);
+  animation: panel-in 0.22s ease both;
+}
+
+.mobile-nav a {
+  padding: 0.85rem 0;
+  color: var(--ink);
+  text-decoration: none;
+  font-size: 1rem;
+  border-bottom: 1px solid var(--purple-line);
+}
+
+.mobile-nav-cta {
+  display: grid;
+  gap: 0.65rem;
+  margin-top: 1.1rem;
+}
+
+.mobile-nav-cta .btn {
+  width: 100%;
+  border-bottom: 0;
+}
+
+@media (min-width: 991px) {
+  .mobile-nav {
+    display: none;
+  }
+}
+
+/*
+ * Between roughly 1150px and 1400px the six links, the lockup and the two
+ * buttons only just fit, so the whole bar tightens before it has to collapse.
+ */
+@media (max-width: 1400px) {
+  .site-header {
+    gap: 1.25rem;
+    padding: 0.9rem 1.75rem;
+  }
+
+  .site-nav {
+    gap: clamp(0.75rem, 1.5vw, 1.4rem);
+  }
+}
+
+/*
+ * Small laptops. Rather than collapse a 1024px screen to a hamburger, the
+ * secondary CTA gives way — that frees ~170px, enough for the six links and
+ * the primary button down to ~974px.
+ *
+ * 1260 rather than 1200: with both buttons the bar needs ~1210px, so 1201
+ * would have been 3px short and wrapped a label.
+ */
+@media (max-width: 1260px) {
+  .site-header {
+    padding: 0.9rem 1.25rem;
+  }
+
+  .site-nav {
+    gap: clamp(0.6rem, 1.2vw, 1.4rem);
+  }
+
+  .header-actions .btn-outline {
+    display: none;
+  }
+}
+
+/*
+ * Below ~974px even the trimmed bar wraps, so this is where it becomes the
+ * hamburger. Both CTAs live in the dropdown panel.
+ */
+@media (max-width: 990px) {
+  .site-nav,
+  .header-actions {
+    display: none;
+  }
+
+  .menu-toggle {
+    display: flex;
+  }
+}
+
+@media (max-width: 560px) {
+  .site-header {
+    padding: 0.7rem 1rem;
+  }
+
+  .brand {
+    padding: 0.3rem 0.8rem;
+    background: var(--purple-soft);
+    border: 1px solid var(--line);
+    border-radius: 999px;
+  }
+
+  .brand-logo {
+    height: 26px;
+  }
+
+      }
+
+@media (prefers-reduced-motion: reduce) {
+  .mobile-nav {
+    animation: none;
+  }
+}
+
+@keyframes panel-in {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}

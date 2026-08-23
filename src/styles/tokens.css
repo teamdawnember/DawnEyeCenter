@@ -1,0 +1,38 @@
+/*
+* Design tokens. --header-h is consumed by both .site-header's min-height
+* and the hero's viewport calc, so the two can never drift apart.
+*/
+
+:root {
+  --purple: #7a2e86;
+  --purple-deep: #4a1b54;
+  --purple-soft: #f6eef8;
+  --purple-line: rgba(122, 46, 134, 0.14);
+  --ink: #141118;
+  --ink-muted: #5c5563;
+  --page: #faf7fb;
+  --surface: #fdfbfe;
+  --line: #ead8ee;
+  --rose: #b8497f;
+
+  /* dark band */
+  --panel-dark: #17121b;
+  --on-dark: #ffffff;
+  --on-dark-muted: rgba(255, 255, 255, 0.66);
+  --accent-light: #dda9ec;
+
+  --header-h: 66px;
+
+  --font-sans: 'Inter', 'Segoe UI', system-ui, -apple-system, Helvetica, Arial,
+    sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, 'SFMono-Regular', Menlo, Consolas,
+    monospace;
+  --font-serif: 'Playfair Display', Georgia, 'Times New Roman', serif;
+}
+
+/* the phone header is shorter: tighter padding, no desktop buttons */
+  @media (max-width: 560px) {
+  :root {
+    --header-h: 64px;
+  }
+}

@@ -1,0 +1,28 @@
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Source artwork (64 MB of PNGs). The site ships the optimised WebPs in
+# public/ instead, and nothing in the build reads this folder — keeping it
+# out means Vercel clones a small repo. It lives in OneDrive alongside the
+# project; drop this line if you'd rather version it here.
+assets/

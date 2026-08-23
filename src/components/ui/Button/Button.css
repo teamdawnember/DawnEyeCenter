@@ -1,0 +1,76 @@
+/*
+* Button system, shared by the header, the hero and the mobile menu.
+*
+* Order matters: base first, then variants, then size. All three have the
+  * same specificity, so a variant only wins its padding and font-size by
+  * being declared after .btn.
+  */
+
+  .btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.95rem 1.6rem;
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 500;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  background: transparent;
+  color: var(--ink);
+  border: 1px solid var(--purple);
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+}
+
+/* variants */
+
+.btn-primary {
+  background: var(--purple);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: var(--purple-deep);
+  border-color: var(--purple-deep);
+}
+
+.btn-ghost {
+  border-color: var(--purple-line);
+}
+
+.btn-ghost:hover {
+  border-color: var(--purple);
+  color: var(--purple);
+}
+
+.btn-outline {
+  color: var(--purple);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* size */
+
+.btn-sm {
+  padding: 0.55rem 1.1rem;
+  font-size: 0.85rem;
+}
+
+/*
+ * Uppercase reads larger at the same font-size, so the outline sits one
+ * step down. Two classes, so it wins regardless of declaration order.
+ */
+.btn-sm.btn-outline {
+  font-size: 0.75rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn:hover {
+    transform: none;
+  }
+}

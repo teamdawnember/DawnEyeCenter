@@ -1,0 +1,18 @@
+/*
+* Swaps long copy for short copy at the phone breakpoint.
+*/
+
+/* swap long copy for short copy at narrow widths */
+.on-narrow {
+  display: none;
+}
+
+@media (max-width: 560px) {
+  .on-wide {
+    display: none;
+  }
+
+  .on-narrow {
+    display: inline;
+  }
+}

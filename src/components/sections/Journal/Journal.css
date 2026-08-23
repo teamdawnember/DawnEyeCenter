@@ -1,0 +1,179 @@
+/*
+ * Journal index. Each row is one link laid out as a grid, and the hover
+ * tint is pulled outward with a negative inline margin so it extends past
+ * the content edge while the thumbnail stays aligned to it.
+ */
+
+.journal {
+  padding: 5rem max(2.5rem, (100% - 88rem) / 2) 6rem;
+}
+
+.journal-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.journal-title {
+  margin: 0;
+  font-size: clamp(2.1rem, 4.2vw, 3.4rem);
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 1;
+  color: var(--ink);
+}
+
+.journal-meta {
+  margin: 0 0 0.4rem;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--purple);
+  white-space: nowrap;
+}
+
+.journal-meta i {
+  font-style: normal;
+  opacity: 0.5;
+}
+
+/* rows */
+
+.journal-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.journal-item + .journal-item {
+  border-top: 1px solid var(--purple-line);
+}
+
+.journal-link {
+  display: grid;
+  grid-template-columns: 8.5rem minmax(0, 1fr) auto 1.25rem;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 0.85rem 1rem;
+  margin-inline: -1rem;
+  text-decoration: none;
+  border-radius: 0.35rem;
+  transition: background 0.22s ease;
+}
+
+.journal-link:hover {
+  background: var(--purple-soft);
+}
+
+.journal-thumb {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  border-radius: 0.25rem;
+}
+
+.journal-heading {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 500;
+  line-height: 1.35;
+  color: var(--ink);
+}
+
+.journal-date {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.16em;
+  color: var(--ink-muted);
+  white-space: nowrap;
+}
+
+.journal-arrow {
+  width: 1.25rem;
+  height: 1.25rem;
+  color: var(--purple);
+  transition: transform 0.22s ease;
+}
+
+.journal-link:hover .journal-arrow {
+  transform: translate(2px, -2px);
+}
+
+/* responsive */
+
+@media (max-width: 1080px) {
+  .journal {
+    padding: 4rem max(2rem, (100% - 88rem) / 2) 4.5rem;
+  }
+}
+
+@media (max-width: 820px) {
+  .journal {
+    padding: 3.5rem 1.75rem 4rem;
+  }
+
+  .journal-head {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.9rem;
+  }
+
+  .journal-meta {
+    margin-bottom: 0;
+  }
+
+  /* the date drops under the title so the row keeps three columns */
+  .journal-link {
+    grid-template-columns: 7rem minmax(0, 1fr) 1.25rem;
+    gap: 1.1rem;
+  }
+
+  .journal-date {
+    grid-column: 2;
+    grid-row: 2;
+    margin-top: 0.35rem;
+  }
+
+  .journal-arrow {
+    grid-column: 3;
+    grid-row: 1 / span 2;
+  }
+}
+
+@media (max-width: 560px) {
+  .journal {
+    padding: 3rem 1.25rem 3.5rem;
+  }
+
+  .journal-link {
+    grid-template-columns: 5rem minmax(0, 1fr);
+    gap: 0.9rem;
+    padding: 0.85rem 0.75rem;
+    margin-inline: -0.75rem;
+  }
+
+  .journal-heading {
+    font-size: 0.95rem;
+  }
+
+  /* no room for the arrow beside the date at this width */
+  .journal-arrow {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .journal-link,
+  .journal-arrow {
+    transition: none;
+  }
+
+  .journal-link:hover .journal-arrow {
+    transform: none;
+  }
+}
