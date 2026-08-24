@@ -84,7 +84,8 @@ export function Locations() {
             </dl>
 
             <div className="centre-actions">
-              <Button href="#centre">Explore this centre</Button>
+              {/* was #centre, which no page answers to */}
+              <Button href="#book">Book at this centre</Button>
               <a
                 className="centre-directions"
                 href={directionsUrl(centre.address)}
@@ -92,6 +93,17 @@ export function Locations() {
                 rel="noreferrer"
               >
                 Directions
+                <svg viewBox="0 0 16 16" aria-hidden="true">
+                  <path
+                    d="M4 12 12 4M12 4H6.5M12 4v5.5"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.6"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+                <span className="sr-only">(opens Google Maps)</span>
               </a>
             </div>
           </li>

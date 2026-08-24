@@ -112,17 +112,27 @@
   transform: translateY(-4px) rotate(-45deg);
 }
 
+/*
+ * Fills everything below the header. Fixed rather than absolute so it is
+ * measured against the visual viewport — top/bottom insets then track mobile
+ * browser chrome as it shows and hides, which a 100vh height would not.
+ *
+ * The background is opaque: at 0.97 with a blur the hero still read through
+ * it, and a menu that shows the page behind it is hard to scan.
+ */
 .mobile-nav {
-  position: absolute;
-  top: 100%;
-  left: 0;
+  position: fixed;
+  /* top is set from the header's measured bottom edge, see SiteHeader.tsx */
   right: 0;
+  bottom: 0;
+  left: 0;
   z-index: 30;
-  display: grid;
-  padding: 0.5rem 1.25rem 1.25rem;
-  background: rgba(250, 247, 251, 0.97);
-  backdrop-filter: blur(16px);
-  border-bottom: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem 1.25rem 1.5rem;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  background: var(--page);
   animation: panel-in 0.22s ease both;
 }
 
@@ -134,10 +144,12 @@
   border-bottom: 1px solid var(--purple-line);
 }
 
+/* pinned to the base of the panel now that it fills the screen */
 .mobile-nav-cta {
   display: grid;
   gap: 0.65rem;
-  margin-top: 1.1rem;
+  margin-top: auto;
+  padding-top: 1.5rem;
 }
 
 .mobile-nav-cta .btn {

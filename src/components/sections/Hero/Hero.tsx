@@ -12,18 +12,28 @@ export function Hero() {
       <div className="hero-copy">
         <p className="eyebrow">
           <span className="eyebrow-dot" aria-hidden="true" />
-          <ResponsiveText
-            wide={
-              <>
-                30+ Years <i>·</i> NABH Accredited <i>·</i> Coimbatore
-              </>
-            }
-            narrow={
-              <>
-                30+ Years <i>·</i> NABH <i>·</i> Coimbatore
-              </>
-            }
-          />
+          {/*
+            Two spans rather than a <br>: below 820px they stack, above it
+            they sit on one line with a separator supplied by CSS. A <br>
+            cannot be un-broken without losing the space around it.
+          */}
+          <span className="eyebrow-text">
+            <span className="eyebrow-line">
+              <ResponsiveText
+                wide={
+                  <>
+                    30+ Years <i>·</i> NABH Accredited
+                  </>
+                }
+                narrow={
+                  <>
+                    30+ Years <i>·</i> NABH
+                  </>
+                }
+              />
+            </span>
+            <span className="eyebrow-line">Coimbatore</span>
+          </span>
         </p>
 
         <h1 className="hero-title">
@@ -45,7 +55,7 @@ export function Hero() {
             <ResponsiveText wide="Book an Appointment" narrow="Book" />
           </Button>
           <Button variant="ghost" href="#specialists">
-            <ResponsiveText wide="Find Your Specialist" narrow="Eye check" />
+            Find Your Specialist
           </Button>
         </div>
 

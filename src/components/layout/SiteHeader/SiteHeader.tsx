@@ -1,12 +1,32 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { navLinks } from '../../../data/site'
 import { useScrollProgress } from '../../../hooks/useScrollProgress'
 import { Button } from '../../ui/Button'
 import './SiteHeader.css'
 
 export function SiteHeader() {
+  const header = useRef<HTMLElement>(null)
   const [menuOpen, setMenuOpen] = useState(false)
+  const [panelTop, setPanelTop] = useState(0)
   const progress = useScrollProgress()
+
+  /*
+   * Where the panel starts. Measured rather than assumed: the header is
+   * sticky but the credential strip above it scrolls away, so the header's
+   * bottom edge is --header-h only once the page has moved. Body scroll is
+   * locked while the menu is open, so one measurement holds.
+   */
+  useEffect(() => {
+    if (!menuOpen) return
+
+    const measure = () => {
+      const box = header.current?.getBoundingClientRect()
+      if (box) setPanelTop(box.bottom)
+    }
+    measure()
+    window.addEventListener('resize', measure)
+    return () => window.removeEventListener('resize', measure)
+  }, [menuOpen])
 
   useEffect(() => {
     if (!menuOpen) return
@@ -15,11 +35,20 @@ export function SiteHeader() {
       if (event.key === 'Escape') setMenuOpen(false)
     }
     window.addEventListener('keydown', onKey)
-    return () => window.removeEventListener('keydown', onKey)
+
+    // the panel covers the screen, so the page behind must not scroll with it
+    const { overflow } = document.body.style
+    document.body.style.overflow = 'hidden'
+
+    return () => {
+      window.removeEventListener('keydown', onKey)
+      document.body.style.overflow = overflow
+    }
   }, [menuOpen])
 
   return (
-    <header className="site-header">
+    <>
+      <header className="site-header" ref={header}>
       <a className="brand" href="/" aria-label="Madurai Eye Center - home">
         <img
           className="brand-logo"
@@ -78,8 +107,20 @@ export function SiteHeader() {
         <span style={{ transform: `scaleX(${progress})` }} />
       </div>
 
+      </header>
+
+      {/*
+        Outside <header> on purpose: the header carries backdrop-filter,
+        which makes it the containing block for position:fixed descendants.
+        Nested, this panel's insets resolved against the 64px header box and
+        it collapsed to nothing.
+      */}
       {menuOpen && (
-        <nav id="mobile-nav" className="mobile-nav">
+        <nav
+          id="mobile-nav"
+          className="mobile-nav"
+          style={{ top: `${panelTop}px` }}
+        >
           {navLinks.map((link) => (
             <a key={link} href="#" onClick={() => setMenuOpen(false)}>
               {link}
@@ -93,6 +134,6 @@ export function SiteHeader() {
           </div>
         </nav>
       )}
-    </header>
+    </>
   )
 }

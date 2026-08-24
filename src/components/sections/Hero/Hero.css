@@ -40,16 +40,31 @@
 }
 
 /* eyebrow */
+
 .eyebrow {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 0.6rem;
   margin: 0 0 1.6rem;
   font-family: var(--font-mono);
   font-size: 0.66rem;
+  line-height: 1.5;
   letter-spacing: 0.24em;
   text-transform: uppercase;
   color: var(--purple);
+}
+
+/* one line on desktop, stacked below 820 — see the media queries */
+.eyebrow-text {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 0.5em;
+}
+
+.eyebrow-line + .eyebrow-line::before {
+  content: '·';
+  margin-right: 0.5em;
+  opacity: 0.5;
 }
 
 .eyebrow i {
@@ -58,11 +73,13 @@
 }
 
 .eyebrow-dot {
+  flex: none;
   width: 6px;
   height: 6px;
+  /* sits on the first line's optical centre, not the block's */
+  margin-top: 0.5em;
   border-radius: 50%;
   background: var(--purple);
-  flex: none;
 }
 
 /* headline */
@@ -177,10 +194,28 @@
   }
 
   /* drops the headline clear of the eye's lower edge */
+  /*
+   * Sized against the room left of the eye, which widens as the viewport
+   * does (the eye caps at 24.5rem). Tracking eases off to buy width for the
+   * larger type.
+   */
+  /*
+   * Two lines: each carries about half the characters, so the type can be
+   * far larger in the same room beside the eye. The gap below comes down to
+   * offset the extra line's height.
+   */
   .eyebrow {
-    margin-bottom: clamp(6rem, 40vw, 14rem);
-    font-size: 0.6rem;
-    letter-spacing: 0.18em;
+    margin-bottom: clamp(4.5rem, 34vw, 12.5rem);
+    font-size: clamp(0.75rem, 2vw, 1.05rem);
+    letter-spacing: 0.14em;
+  }
+
+  .eyebrow-text {
+    flex-direction: column;
+  }
+
+  .eyebrow-line + .eyebrow-line::before {
+    content: none;
   }
 
   .hero-title {
@@ -212,12 +247,12 @@
     background-size: 60px 60px;
   }
 
-  /* sized to stop short of the eye rather than run under it */
   .eyebrow {
-    font-size: 0.52rem;
+    font-size: clamp(0.7rem, 3.2vw, 1rem);
     letter-spacing: 0.12em;
   }
 
+  /* sized to stop short of the eye rather than run under it */
   .hero-copy {
     max-width: none;
   }
@@ -237,9 +272,13 @@
     flex-wrap: nowrap;
   }
 
+  /* "Find Your Specialist" will not sit on one line at half width */
   .hero-cta .btn {
     flex: 1;
-    padding: 0.95rem 0.75rem;
+    padding: 0.8rem 0.6rem;
+    white-space: normal;
+    line-height: 1.25;
+    text-align: center;
   }
 
   .hero-stats {
@@ -272,13 +311,12 @@
   }
 
   .eyebrow {
-    margin-bottom: clamp(6rem, 32vw, 9rem);
+    margin-bottom: clamp(4.5rem, 26vw, 7.5rem);
   }
 }
 
 @media (max-width: 360px) {
   .eyebrow {
-    font-size: 0.5rem;
     letter-spacing: 0.08em;
   }
 
