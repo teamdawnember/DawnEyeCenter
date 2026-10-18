@@ -27,6 +27,7 @@
     sans-serif;
   --font-mono: 'JetBrains Mono', ui-monospace, 'SFMono-Regular', Menlo, Consolas,
     monospace;
+  --font-brand: 'Outfit', var(--font-sans);
   --font-serif: 'Playfair Display', Georgia, 'Times New Roman', serif;
 }
 

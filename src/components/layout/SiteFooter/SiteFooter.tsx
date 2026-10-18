@@ -14,17 +14,9 @@ export function SiteFooter() {
     <footer className="site-footer">
       <div className="footer-top">
         <div className="footer-brand">
-          {/*
-            The lockup is dark purple artwork, so it needs a light plate to
-            sit on rather than being placed straight onto the dark panel.
-          */}
           <span className="footer-logo">
-            <img
-              src="/mec-logo.webp"
-              alt="Madurai Eye Center - Precision Eye Care"
-              width={434}
-              height={58}
-            />
+            <img src="/dawn-mark.png" alt="" width={480} height={300} />
+            Dawn Eye Center
           </span>
           <p className="footer-tagline">{footerTagline}</p>
         </div>
@@ -61,7 +53,7 @@ export function SiteFooter() {
       </div>
 
       <div className="footer-base">
-        <p>© {year} Madurai Eye Center</p>
+        <p>© {year} Dawn Eye Center</p>
         <ul>
           {legalLinks.map((name) => (
             <li key={name}>

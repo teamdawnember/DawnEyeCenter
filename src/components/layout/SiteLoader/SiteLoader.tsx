@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react'
-import { LogoMark } from './LogoMark'
 import './SiteLoader.css'
 
 /** How long the curtain holds before it starts leaving. */
@@ -42,12 +41,12 @@ export function SiteLoader() {
       className={`loader${leaving ? ' is-leaving' : ''}`}
       role="status"
       aria-live="polite"
-      aria-label="Loading Madurai Eye Center"
+      aria-label="Loading Dawn Eye Center"
     >
       <div className="loader-lockup">
-        <LogoMark />
+        <img className="mark" src="/dawn-mark.png" alt="" width={480} height={300} />
         <div className="loader-word">
-          <img src="/mec-wordmark.webp" alt="" width={347} height={58} />
+          <span className="loader-name">Dawn Eye Center</span>
           <span className="loader-rule" />
         </div>
       </div>

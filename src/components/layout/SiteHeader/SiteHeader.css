@@ -31,13 +31,25 @@
 .brand {
   display: inline-flex;
   align-items: center;
+  gap: 0.6rem;
   flex: none;
+}
+
+.brand-mark {
+  display: block;
+  width: clamp(46px, 3.8vw, 58px);
+  height: auto;
 }
 
 .brand-logo {
   display: block;
-  width: auto;
-  height: clamp(28px, 2.4vw, 36px);
+  font-family: var(--font-brand);
+  font-size: clamp(1.15rem, 1.6vw, 1.5rem);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1;
+  color: var(--purple-deep);
+  white-space: nowrap;
 }
 
 .site-nav {
@@ -228,7 +240,7 @@
   }
 
   .brand-logo {
-    height: 26px;
+    font-size: 1.05rem;
   }
 
       }

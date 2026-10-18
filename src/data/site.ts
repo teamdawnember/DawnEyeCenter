@@ -17,8 +17,8 @@ export type Stat = {
 }
 
 export const heroStats: Stat[] = [
-  { value: '1 Million', label: 'Happy Eyes' },
-  { value: '50K+', label: 'Surgeries' },
+  { value: '10K+', label: 'Happy Eyes' },
+  { value: '2K+', label: 'Surgeries' },
   { value: '10+', label: 'Super Specialities', short: 'Specialities' },
 ]
 
@@ -125,25 +125,25 @@ export type Specialist = {
 
 export const specialists: Specialist[] = [
   {
-    name: 'Dr A Srinivasan',
-    short: 'Dr A Srinivasan',
+    name: 'Dr Aswin Srinivasan',
+    short: 'Dr Aswin S',
     role: 'Medical Director',
     focus: 'Cataract + Refractive',
-    image: '/team/cut-dr-a-srinivasan.webp',
+    image: '/team/dr-aswin-srinivasan.webp',
   },
   {
-    name: 'Dr Nithin K Srinivasan',
-    short: 'Dr Nithin K S',
+    name: 'Dr Jeeva Krishnamoorty',
+    short: 'Dr Jeeva K',
     role: 'Retinal Surgeon & Uveitis Specialist',
     focus: 'Retina + Uveitis',
-    image: '/team/cut-dr-nithin.webp',
+    image: '/team/dr-jeeva-krishnamoorty.webp',
   },
   {
-    name: 'Dr Naveen K Srinivasan',
-    short: 'Dr Naveen K S',
+    name: 'Dr Vishnu Ganeshan',
+    short: 'Dr Vishnu G',
     role: 'Corneal & Refractive Surgeon',
     focus: 'Cornea + LASIK',
-    image: '/team/cut-dr-naveen.webp',
+    image: '/team/dr-vishnu-ganeshan.webp',
   },
 ]
 
@@ -182,10 +182,10 @@ export const journalPosts: JournalPost[] = [
 
 /** Headline figures shown in the dark band. */
 export const figures: Stat[] = [
-  { value: '1 Million', label: 'Happy Eyes' },
-  { value: '50K+', label: 'Surgeries' },
+  { value: '10K+', label: 'Happy Eyes' },
+  { value: '2K+', label: 'Surgeries' },
   { value: '10+', label: 'Super Specialities' },
-  { value: '10', label: 'Awards' },
+  { value: '2', label: 'Centres' },
 ]
 
 /* ---------------------------------------------------------- vision test */
@@ -228,22 +228,20 @@ export type Location = {
 
 export const locations: Location[] = [
   {
-    eyebrow: 'Our established centre',
-    name: 'R.S. Puram',
-    address:
-      '137, Periasamy Road (East), R.S. Puram, Coimbatore, Tamil Nadu 641002',
-    pincode: '641002',
+    eyebrow: 'Our main centre',
+    name: 'Teynampet',
+    address: '12, Anna Salai, Teynampet, Chennai, Tamil Nadu 600018',
+    pincode: '600018',
     hours: 'Mon–Sat 9am–7pm',
-    phone: '0422 255 3077',
+    phone: '72002 05455',
   },
   {
     eyebrow: 'Our modern centre',
-    name: 'Kuniyamuthur',
-    address:
-      '270, Palakkad-Coimbatore Road, Aparna Bus Stop, Thirunavukarsu Nagar, Kuniyamuthur, Tamil Nadu 641008',
-    pincode: '641008',
+    name: 'Velachery',
+    address: '45, Lake View Road, Velachery, Chennai, Tamil Nadu 600042',
+    pincode: '600042',
     hours: 'Mon–Sat 9am–7pm',
-    phone: '0422 254 2627',
+    phone: '72002 05455',
   },
 ]
 
@@ -273,28 +271,28 @@ export type Testimonial = {
 export const testimonials: Testimonial[] = [
   {
     quote:
-      'Postoperative care was really good. Dr Nithin explained every step before he did it, and the follow-up calls actually came.',
-    name: 'Ramya S',
-    context: 'Retinal surgery · R.S. Puram',
+      'Dr Aswin replaced my father’s cataract lens in under twenty minutes. By evening he was reading the clock across the room again.',
+    name: 'Priya R',
+    context: 'Cataract surgery · Teynampet',
   },
   {
     quote:
-      'My mother had both cataracts done three weeks apart. She reads the newspaper again without holding it at arm’s length.',
-    name: 'Karthik V',
-    context: 'Cataract · R.S. Puram',
+      'Sudden floaters had me scared. Dr Jeeva saw me the same day, mapped the retina and sealed a small tear before it spread.',
+    name: 'Arun K',
+    context: 'Retinal care · Velachery',
   },
   {
     quote:
-      'Walked in for a routine check, walked out with a glaucoma diagnosis caught early. The workup was thorough and nothing was rushed.',
-    name: 'Deepa N',
-    context: 'Glaucoma screening · Kuniyamuthur',
+      'After ten years of thick glasses, LASIK with Dr Vishnu took one morning. Every test was explained and nothing felt rushed.',
+    name: 'Meena S',
+    context: 'LASIK · Teynampet',
   },
 ]
 
 /* --------------------------------------------------------------- footer */
 
 export const footerTagline =
-  'Precision eye care in Coimbatore since 1996. NABH accredited. Two centres, three super specialists, one standard of care.'
+  'Precision eye care from Dawn Eye Center. Two centres, three super specialists, one standard of care.'
 
 export const footerHours = ['Mon–Sat 9am–7pm', 'Emergencies round the clock']
 

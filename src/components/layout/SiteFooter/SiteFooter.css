@@ -17,16 +17,21 @@
 /* brand */
 
 .footer-logo {
-  display: inline-block;
-  padding: 0.55rem 1.1rem;
-  background: #fff;
-  border-radius: 0.25rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  font-family: var(--font-brand);
+  font-size: 1.4rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1;
+  color: var(--on-dark);
 }
 
 .footer-logo img {
   display: block;
-  width: auto;
-  height: 26px;
+  width: 58px;
+  height: auto;
 }
 
 .footer-tagline {

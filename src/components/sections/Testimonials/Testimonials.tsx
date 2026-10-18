@@ -9,7 +9,7 @@ export function Testimonials() {
           In their words.
         </h2>
         <p className="voices-meta">
-          Patient stories <i>·</i> Google reviews
+          Patient stories <i>·</i> Dawn Eye Center
         </p>
       </div>
 

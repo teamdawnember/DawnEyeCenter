@@ -7,12 +7,11 @@ export function Figures() {
       <div className="figures-panel">
         <div className="figures-head">
           <h2 className="figures-title" id="figures-title">
-            Three decades of seeing what matters.
+            Seeing what matters.
           </h2>
           <p className="figures-intro">
-            A NABH-accredited centre in Coimbatore, built around three super
-            specialists and a full diagnostic suite. Figures below are as
-            published by Madurai Eye Center.
+            A specialist eye centre built around three super specialists and a
+            full diagnostic suite.
           </p>
         </div>
 

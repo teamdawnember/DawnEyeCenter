@@ -22,17 +22,17 @@ export function Hero() {
               <ResponsiveText
                 wide={
                   <>
-                    30+ Years <i>·</i> NABH Accredited
+                    Specialist <i>·</i> Eye Care
                   </>
                 }
                 narrow={
                   <>
-                    30+ Years <i>·</i> NABH
+                    Specialist Eye Care
                   </>
                 }
               />
             </span>
-            <span className="eyebrow-line">Coimbatore</span>
+            <span className="eyebrow-line">Two Centres</span>
           </span>
         </p>
 
@@ -45,8 +45,8 @@ export function Hero() {
 
         <p className="hero-lede">
           <ResponsiveText
-            wide="Madurai Eye Center combines specialist expertise, advanced diagnostics and three decades of surgical experience across two centres in Coimbatore."
-            narrow="Specialist expertise, advanced diagnostics and three decades of surgery. Two centres in Coimbatore."
+            wide="Dawn Eye Center combines specialist expertise, advanced diagnostics and experienced surgical care across two centres."
+            narrow="Specialist expertise, advanced diagnostics and experienced surgical care. Two centres."
           />
         </p>
 

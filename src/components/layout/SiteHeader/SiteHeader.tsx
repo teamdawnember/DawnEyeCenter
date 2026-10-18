@@ -49,14 +49,9 @@ export function SiteHeader() {
   return (
     <>
       <header className="site-header" ref={header}>
-      <a className="brand" href="/" aria-label="Madurai Eye Center - home">
-        <img
-          className="brand-logo"
-          src="/mec-logo.webp"
-          alt="Madurai Eye Center - Precision Eye Care"
-          width={434}
-          height={58}
-        />
+      <a className="brand" href="/" aria-label="Dawn Eye Center - home">
+        <img className="brand-mark" src="/dawn-mark.png" alt="" width={480} height={300} />
+        <span className="brand-logo">Dawn Eye Center</span>
       </a>
 
       <nav className="site-nav">
